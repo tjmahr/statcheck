@@ -9,7 +9,7 @@ RGX_F <- "F"
 RGX_Z <- "([^a-z](z|Z))"
 # for chi2: effectively extract everything that is NOT a t, r, F, z, Q, W, n, or
 # D, followed by *maybe* a 2 (and later followed by a result in a chi2 layout)
-RGX_CHI2 <- "((\\s[^trFzZQWnD ]\\s?)|([^trFzZQWnD ](2|\u00B2)\\s?))"
+RGX_CHI2 <- "((\\s[^trFzZQWnD ](2|\u00B2)?\\s?)|([^trFzZQWnD ](2|\u00B2)\\s?))"
 
 # degrees of freedom
 # the way dfs are reported differs per test type, except for t, r, and Q, where
