@@ -37,11 +37,22 @@ test_that("variations in spelling the Greek letter chi are picked up", {
   txt3 <- "chi_2(28) = 2.20, p = .03"
   # lowercase chi
   txt4 <- "\u03C72(28) = 2.20, p = .03"
-  # superscript 2
-  txt5 <- "chi\u00B2(28) = 2.20, p = .03"
-  result <- statcheck(c(txt1, txt2, txt3, txt4, txt5), messages = FALSE)
+  set <- c(txt1, txt2, txt3, txt4)
+  result <- statcheck(set, messages = FALSE)
 
-  expect_equal(nrow(result), 5)
+  expect_equal(nrow(result), length(set))
+})
+
+# variations in extracted 2
+test_that("variations in spelling the chi-squared 2 are picked up", {
+  txt1 <- "X2(28) = 2.20, p = .03"
+  txt2 <- "x^2(28) = 2.20, p = .03"
+  # superscript 2
+  txt3 <- "chi\u00B2(28) = 2.20, p = .03"
+  set <- c(txt1, txt2, txt3)
+  result <- statcheck(set, messages = FALSE)
+
+  expect_equal(nrow(result), length(set))
 })
 
 # variation in degrees of freedom
